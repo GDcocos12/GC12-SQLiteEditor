@@ -1,0 +1,87 @@
+﻿<Window x:Class="GC12_SQLiteGUI.CreateTableWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create New Table" Height="400" Width="400">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="Create" Click="CreateButton_Click" Margin="5" Padding="10,2" IsDefault="True"/>
+            <Button Content="Cancel" Click="CancelButton_Click" Margin="5" Padding="10,2" IsCancel="True"/>
+        </StackPanel>
+
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0,0,0,10">
+                <TextBlock Text="Table Name:"/>
+                <TextBox Name="tableNameTextBox" Margin="0,2,0,10"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Columns:" FontWeight="Bold"/>
+
+                <ListView Grid.Row="1" Name="columnsListView" Margin="0,5,0,0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name" Width="120">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding Name}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Data Type" Width="100">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox  SelectedIndex="0"
+                                                  SelectedValuePath="Content">
+                                            <ComboBoxItem Content="INTEGER"/>
+                                            <ComboBoxItem Content="TEXT"/>
+                                            <ComboBoxItem Content="REAL"/>
+                                            <ComboBoxItem Content="BLOB"/>
+                                            <ComboBoxItem Content="NUMERIC"/>
+                                            <ComboBox.SelectedValue>
+                                                <Binding Path="DataType" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
+                                            </ComboBox.SelectedValue>
+                                        </ComboBox>
+
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Primary Key" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsPrimaryKey}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Not Null" Width="70">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsNotNull}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+
+                    <ListView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Add Column" Click="AddColumn_Click"/>
+                            <MenuItem Header="Delete Column" Click="DeleteColumn_Click"/>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+                </ListView>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>

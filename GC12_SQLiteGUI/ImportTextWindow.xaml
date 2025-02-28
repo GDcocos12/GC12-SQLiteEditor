@@ -1,0 +1,20 @@
+﻿<Window x:Class="GC12_SQLiteGUI.ImportTextWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Import Text" Height="400" Width="400">
+    <StackPanel Margin="10">
+        <TextBlock Text="Table Name:"/>
+        <TextBox Name="tableNameTextBox" Margin="0,5,0,10"/>
+
+        <TextBlock Text="Separator (default ';'):"/>
+        <TextBox Name="separatorTextBox" Margin="0,5,0,10"/>
+
+        <TextBlock Text="Text to Import:"/>
+        <TextBox Name="textTextBox" Margin="0,5,0,10" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="200"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Import" Click="ImportButton_Click" Margin="5" Padding="10,2" IsDefault="True"/>
+            <Button Content="Cancel" Click="CancelButton_Click" Margin="5" Padding="10,2" IsCancel="True"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="GC12_SQLiteGUI.SqlScriptWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:GC12_SQLiteGUI"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button Content="Execute" Click="ExecuteButton_Click" ToolTip="Execute the SQL script"/>
+                <Button Content="Save Script" Click="SaveScriptButton_Click" ToolTip="Save the script to a file"/>
+                <Button Content="Load Script" Click="LoadScriptButton_Click" ToolTip="Load a script from a file"/>
+                <Separator/>
+                <TextBlock VerticalAlignment="Center" Margin="5,0,0,0">Result:</TextBlock>
+                <ComboBox Name="resultTypeComboBox" Width="100" Margin="5,0,0,0" SelectedIndex="0">
+                    <ComboBoxItem Content="Grid"/>
+                    <ComboBoxItem Content="Text"/>
+                </ComboBox>
+
+            </ToolBar>
+        </ToolBarTray>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+
+            <TextBox Name="scriptTextBox" Grid.Row="0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"
+                     FontFamily="Consolas" FontSize="12" TextChanged="ScriptTextBox_TextChanged"/>
+
+            <GridSplitter Grid.Row="1" Height="5" HorizontalAlignment="Stretch" />
+
+            <ContentControl Grid.Row="2" Name="resultContentControl"/>
+
+        </Grid>
+    </DockPanel>
+</UserControl>

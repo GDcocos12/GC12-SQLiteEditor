@@ -1,0 +1,12 @@
+﻿<Window x:Class="GC12_SQLiteGUI.CreateDatabaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create New Database" Height="200" Width="400">
+    <StackPanel Margin="10">
+        <TextBlock Text="Database File Path:"/>
+        <TextBox Name="filePathTextBox" Margin="0,5,0,10"/>
+        <Button Content="Browse..." Click="BrowseButton_Click" Margin="0,0,0,10"/>
+        <Button Content="Create" Click="CreateButton_Click" IsDefault="True"/>
+        <Button Content="Cancel" Click="CancelButton_Click" IsCancel="True"/>
+    </StackPanel>
+</Window>
