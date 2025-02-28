@@ -22,8 +22,7 @@ GC12-SQLiteEditor is a simple, user-friendly SQLite database editor and creator 
     *   Toolbar with buttons for common actions.
     *   Status bar to display messages.
 *  **Error Handling:** Includes robust error handling for common database operations, SQL syntax errors, and file operations.
-* **Unsaved Changes Indication:** (Removed in a later commit, but easily re-added).
-* **Close Database Functionality:** Close individual databases, which automatically hides associated Edit and Script windows.
+*  **Close Database Functionality:** Close individual databases, which automatically hides associated Edit and Script windows.
 
 ## Prerequisites
 
